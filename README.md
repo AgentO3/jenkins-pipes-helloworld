@@ -61,4 +61,4 @@ Now that you have a minimal example running, here are some ideas on how to dig f
  * try modeling more complex pipelines with parallel execution etc
  * ...
 
-:beer:
+:beer: :beer:
