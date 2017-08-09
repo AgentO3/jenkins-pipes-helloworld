@@ -60,3 +60,5 @@ Now that you have a minimal example running, here are some ideas on how to dig f
  * use node labels to run your builds on specific nodes only
  * try modeling more complex pipelines with parallel execution etc
  * ...
+
+:beer:
