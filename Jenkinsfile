@@ -17,6 +17,7 @@ node {
     }
     stage('publish') {
       echo "uploading package..."
+      sh "printenv"
     }
   } finally {
     stage('cleanup') {
