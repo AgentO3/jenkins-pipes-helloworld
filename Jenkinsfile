@@ -7,7 +7,9 @@ node {
       sh "git clean -fdx"
     }
     stage('compile') {
+      agent { docker 'openjdk:8-jre' } 
       echo "nothing to compile for hello.sh..."
+      sh 'java -version'
     }
     stage('test') {
       sh "./test_hello.sh"
