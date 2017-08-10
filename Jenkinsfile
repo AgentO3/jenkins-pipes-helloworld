@@ -5,6 +5,7 @@ pipeline {
             agent any
             steps {
                 sh 'git status'
+                sh 'echo foo > foo'
             }
         }
         stage('Example Build') {
