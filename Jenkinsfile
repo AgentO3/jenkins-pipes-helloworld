@@ -1,5 +1,6 @@
-node {
-  try {
+pipeline {
+  agent none
+  stages {
     stage('checkout') {
       checkout scm
     }
@@ -20,10 +21,6 @@ node {
     stage('publish') {
       echo "uploading package..."
       sh "printenv"
-    }
-  } finally {
-    stage('cleanup') {
-      echo "doing some cleanup..."
     }
   }
 }
