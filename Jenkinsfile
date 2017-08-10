@@ -1,26 +1,19 @@
 pipeline {
-  agent none
-  stages {
-    stage('checkout') {
-      checkout scm
+    agent none 
+    stages {
+        stage('Example Build') {
+            agent { docker 'maven:3-alpine' } 
+            steps {
+                echo 'Hello, Maven'
+                sh 'mvn --version'
+            }
+        }
+        stage('Example Test') {
+            agent { docker 'openjdk:8-jre' } 
+            steps {
+                echo 'Hello, JDK'
+                sh 'java -version'
+            }
+        }
     }
-    stage('prepare') {
-      sh "git clean -fdx"
-    }
-    stage('compile') {
-      agent { docker 'openjdk:8-jre' } 
-      echo "nothing to compile for hello.sh..."
-      sh 'java -version'
-    }
-    stage('test') {
-      sh "./test_hello.sh"
-    }
-    stage('package') {
-      sh "tar -cvzf hello.tar.gz hello.sh"
-    }
-    stage('publish') {
-      echo "uploading package..."
-      sh "printenv"
-    }
-  }
 }
