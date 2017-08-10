@@ -10,6 +10,11 @@ pipeline {
                 sh 'mvn --version'
             }
         }
+        stage('Sanity check') {
+            steps {
+                input "Does the staging environment look ok?"
+            }
+        }
         stage('Example Test') {
             agent { docker 'openjdk:8-jre' } 
             steps {
