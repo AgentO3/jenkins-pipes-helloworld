@@ -1,12 +1,17 @@
 pipeline {
     agent none 
     stages {
+        stage('Prebuild') {
+            agent none
+            steps {
+                sh 'git status'
+            }
+        }
         stage('Example Build') {
             agent { docker 'maven:3-alpine' } 
             steps {
                 echo 'Hello, Maven'
                 sh 'printenv'
-                sh 'git status'
                 sh 'mvn --version'
             }
         }
