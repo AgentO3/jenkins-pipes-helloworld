@@ -2,7 +2,7 @@ pipeline {
     agent none 
     stages {
         stage('Prebuild') {
-            agent none
+            agent any
             steps {
                 sh 'git status'
             }
