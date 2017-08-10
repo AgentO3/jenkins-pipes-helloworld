@@ -6,14 +6,8 @@ pipeline {
             steps {
                 echo 'Hello, Maven'
                 sh 'printenv'
-                sh 'ls'
+                sh 'git status'
                 sh 'mvn --version'
-            }
-        }
-        stage('Sanity check') {
-            agent none 
-            steps {
-                input "Does the staging environment look ok?"
             }
         }
         stage('Example Test') {
