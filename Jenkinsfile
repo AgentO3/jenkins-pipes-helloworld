@@ -11,6 +11,7 @@ pipeline {
             }
         }
         stage('Sanity check') {
+            agent none 
             steps {
                 input "Does the staging environment look ok?"
             }
